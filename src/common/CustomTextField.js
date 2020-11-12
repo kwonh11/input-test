@@ -44,7 +44,7 @@ export default function TextFieldTemplate(props) {
     // 디바운스
     useDebounce({
         callback: () => handleChangeInput(inputTemp),
-        ms: 350,
+        ms: 250,
         args: [inputTemp]
     });
 
