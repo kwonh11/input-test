@@ -13,7 +13,6 @@ const comboboxContent = {
     },
 };
 
-
 const InputWrap = styled.div`
     width: 100%;
     height: 76px;
@@ -34,6 +33,7 @@ const styles = {
 export default function CustomPicker(props) {
     const {type, pickerValue, validation, handleChangePicker} = props;
     const content = comboboxContent[type];
+
     return (
     <InputWrap>
         <MuiPickersUtilsProvider utils={DateFnsUtils}>

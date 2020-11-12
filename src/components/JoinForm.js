@@ -153,7 +153,7 @@ export default function JoinForm(props) {
     const [passwordValue, setPasswordValue] = React.useState("");
     const [companyValue, setCompanyValue] = React.useState("");
     const [currencyValue, setCurrencyValue] = React.useState("");
-    const [establishedValue, setEstablishedValue] = React.useState(false);
+    const [establishedValue, setEstablishedValue] = React.useState(new Date());
     const [language, setLanguage] = React.useState("한국어");
 
     const [emailValidation, setEmailValidation] = React.useState(false);
