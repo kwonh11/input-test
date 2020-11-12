@@ -19,6 +19,9 @@ const InputWrap = styled.div`
     height: 76px;
     padding-bottom: 19px;
     margin-bottom: 18px;
+    & .MuiOutlinedInput-adornedEnd {
+        padding-right: 0;
+    }
 `;
 
 const styles = {
@@ -33,7 +36,7 @@ export default function CustomPicker(props) {
     const content = comboboxContent[type];
     return (
     <InputWrap>
-        <MuiPickersUtilsProvider  utils={DateFnsUtils}>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <KeyboardDatePicker
             color="secondary"
             inputVariant="outlined"

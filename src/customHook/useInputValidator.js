@@ -11,13 +11,19 @@ export default function useValidator(dependencies) {
     } = dependencies;
 
     React.useEffect(() => {
-        if (emailValue && emailValue.includes("@")) setEmailValidation(true);
-        if (!emailValue) setEmailValidation(false);
+        if (emailValue && emailValue.includes("@")) {
+            setEmailValidation(true);
+        } else {
+            setEmailValidation(false);
+        }
     }, [emailValue, setEmailValidation]);
     React.useEffect(() => {
-        const reg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^*()\-_=+\\\|\[\]{};:\'",.<>\/?]).{8,16}$/gm;
-        if (reg.test(passwordValue)) setPasswordValidation(true);
-        if(!passwordValue) setPasswordValidation(false);
+        const reg = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$/gm;
+        if (reg.test(passwordValue)) {
+            setPasswordValidation(true);
+        } else {
+            setPasswordValidation(false);
+        }
     }, [passwordValue, setPasswordValidation]);
     React.useEffect(() => {
         if (companyValue) setCompanyValidation(true);
@@ -30,5 +36,4 @@ export default function useValidator(dependencies) {
     React.useEffect(() => {
         if (establishedValue) setEstablishedValidation(true);
     }, [establishedValue, setEstablishedValidation]);
-
 };

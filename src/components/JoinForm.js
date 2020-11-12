@@ -20,10 +20,12 @@ import useSendableValidator from '../customHook/useSendableValidator';
 
 const Form = styled.form`
     position: relative;
+    margin: 0 0 6px;
     width: 585px;
     height: 794px;
-    margin: 0 0 6px;
-    padding: 68px 41px 34px 73px;
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
     border-radius: 11px;
     border: solid 1px #dadce0;
 `;
@@ -33,6 +35,7 @@ const TitleWrap = styled.div`
     margin-bottom: 13px;
 `;
 const StyledTitle = styled(Typography)`
+    font-family: Arial;
     font-size: 24px;
     font-weight: bold;
     font-stretch: normal;
@@ -49,21 +52,30 @@ const DescriptionWrap = styled.div`
     margin-bottom: 27px;
 `;
 const StyledDescription = styled(Typography)`
+    font-family: Arial;
     font-size: 16px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
-    letter-spacing: normal;
+    letter-spacing: -1px;
     text-align: left;
     color: #1f1f1f;
 `;
 
 const StyledRadioGroup = styled(RadioGroup)`
-    margin-bottom: 21.5px;
     flex-direction: row;
+    margin-bottom: 21.5px;
+    & .MuiTypography-body1 {        
+        font-family: Arial;
+        font-size: 14px;
+    }
+    & .Mui-checked+.MuiFormControlLabel-label {
+        font-weight: bold;
+    }
     & .MuiRadio-colorSecondary.Mui-checked {
         color: #f15642;
+        
     }
 `;
 
@@ -73,8 +85,9 @@ const SubtitleWrap = styled.div`
     margin-bottom: 8px;
 `;
 const StyledSubtitle = styled(Typography)`
+    font-family: Noto Sans KR;
     font-size: 12px;
-    font-weight: normal;
+    font-weight: bold;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
@@ -198,7 +211,7 @@ export default function JoinForm(props) {
     const preventSubmit = (e) => {
         e.preventDefault();
         if (sendable) console.log(
-            `submit ------
+            `submit succeed
             email: ${emailValue}
             password: ${passwordValue}
             company: ${companyValue}
@@ -270,8 +283,9 @@ export default function JoinForm(props) {
                     onChange={handleChangeLanguage}
                     input={<LanguageInput />}
                     >
-                    <MenuItem value="한국어">한국어</MenuItem>
-                    <MenuItem value="영어">영어</MenuItem>
+                    {
+                        languages.map(language => <MenuItem key={language} value={language}>{language}</MenuItem>)
+                    }
                 </Select>
                 </FormControl>
             </LanguageWrap>

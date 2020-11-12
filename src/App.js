@@ -2,20 +2,23 @@ import React from 'react';
 import FormContainer from './common/Container';
 import JoinForm from './components/JoinForm';
 import CssBaseline from '@material-ui/core/CssBaseline'
-import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import {createGlobalStyle} from 'styled-components';
+
+
+const FontInitializer = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,100;1,300&display=swap');
+  font-family: 'Roboto','Noto Sans KR', 'sans-serif';
+`;
+
 function App() {
-  const theme = createMuiTheme({
-    typography: {
-      fontFamily: `"Arial", "NotoSansCJKkr"`
-    }
-  })
     return (
-      <MuiThemeProvider theme={theme}>
+      <React.Fragment>
+        <FontInitializer />
         <CssBaseline />
         <FormContainer>
             <JoinForm />
         </FormContainer>
-      </MuiThemeProvider>
+      </React.Fragment>
     )
 };
 export default App;

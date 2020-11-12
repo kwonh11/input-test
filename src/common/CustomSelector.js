@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FormControl, InputLabel, MenuItem } from '@material-ui/core';
+import { FormControl, MenuItem } from '@material-ui/core';
 import Select from '@material-ui/core/Select';
-
+import DetailsIcon from '@material-ui/icons/Details';
 
 const comboboxContent = {
     currency: {
@@ -17,6 +17,9 @@ const InputWrap = styled.div`
     height: 76px;
     padding-bottom: 19px;
     margin-bottom: 18px;
+    & .MuiSelect-iconOutlined {
+      margin-right: 4px;
+    }
 `;
 const Notification = styled.div`
     width: 100%;
@@ -51,12 +54,11 @@ export default function CustomSelector(props) {
     <InputWrap>
       <StyledFormControl variant="outlined" color="secondary">
         <Select
-          labelId="demo-simple-select-outlined-label"
-          id="demo-simple-select-outlined"
           value={selectorValue}
           displayEmpty
           onChange={handleChangeSelector}
           placeholder={content.placeholder}
+          IconComponent={DetailsIcon}
         >
           <MenuItem value="">
             <StyledEm>{content.placeholder}</StyledEm>
