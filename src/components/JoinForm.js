@@ -15,7 +15,8 @@ import CustomTextField from '../common/CustomTextField';
 import CustomSelector from '../common/CustomSelector';
 import CustomPicker from '../common/CustomPicker';
 
-import useValidator from '../customHook/useValidator';
+import useInputValidator from '../customHook/useInputValidator';
+import useSendableValidator from '../customHook/useSendableValidator';
 
 const Form = styled.form`
     position: relative;
@@ -150,12 +151,19 @@ export default function JoinForm(props) {
 
     const [sendable, setSendable] = React.useState(false);
 
-    useValidator({
-        emailValue, emailValidation, setEmailValidation,
-        passwordValue, passwordValidation, setPasswordValidation,
-        companyValue, companyValidation, setCompanyValidation,
-        currencyValue, currencyValidation, setCurrencyValidation,
-        establishedValue, establishedValidation, setEstablishedValidation,
+    useInputValidator({
+        emailValue, setEmailValidation,
+        passwordValue, setPasswordValidation,
+        companyValue, setCompanyValidation,
+        currencyValue, setCurrencyValidation,
+        establishedValue, setEstablishedValidation,
+    });
+    useSendableValidator({
+        emailValidation,
+        passwordValidation,
+        companyValidation,
+        currencyValidation,
+        establishedValidation,
         setSendable
     });
 

@@ -52,6 +52,7 @@ export default function CustomPicker(props) {
             KeyboardButtonProps={{
                 'aria-label': 'change date',
             }}
+            autoComplete="reset"
         />
         </MuiPickersUtilsProvider>
     </InputWrap>

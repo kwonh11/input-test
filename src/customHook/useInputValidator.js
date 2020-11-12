@@ -3,12 +3,11 @@ import React from 'react';
 export default function useValidator(dependencies) {
     
     const {
-        emailValue, emailValidation, setEmailValidation,
-        passwordValue, passwordValidation, setPasswordValidation,
-        companyValue, companyValidation, setCompanyValidation,
-        currencyValue, currencyValidation, setCurrencyValidation,
-        establishedValue, establishedValidation, setEstablishedValidation,
-        setSendable
+        emailValue, setEmailValidation,
+        passwordValue, setPasswordValidation,
+        companyValue, setCompanyValidation,
+        currencyValue, setCurrencyValidation,
+        establishedValue, setEstablishedValidation,
     } = dependencies;
 
     React.useEffect(() => {
@@ -31,15 +30,5 @@ export default function useValidator(dependencies) {
     React.useEffect(() => {
         if (establishedValue) setEstablishedValidation(true);
     }, [establishedValue, setEstablishedValidation]);
-    React.useEffect(() => {
-        if (emailValidation &&
-            passwordValidation &&
-            companyValidation &&
-            currencyValidation &&
-            establishedValidation) {
-                setSendable(true);
-            } else {
-                setSendable(false);
-            }
-    }, [emailValidation, passwordValidation, companyValidation, currencyValidation, establishedValidation, setSendable]);
+
 };
