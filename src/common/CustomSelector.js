@@ -48,8 +48,8 @@ const StyledEm = styled.em`
 
 export default function CustomSelector(props) {
     const {validation, type, selectorValue, handleChangeSelector} = props;
-
     const content = comboboxContent[type];
+    
     return (
     <InputWrap>
       <StyledFormControl variant="outlined" color="secondary">

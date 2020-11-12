@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
-
+import useDebounce from '../customHook/useDebounce';
 
 const textFieldContent = {
     email: {
@@ -38,8 +38,19 @@ const styles = {
 };
 export default function TextFieldTemplate(props) {
     const {validation, type, inputValue, handleChangeInput} = props;
+    const [inputTemp, setInputTemp] = React.useState("");
     const content = textFieldContent[type];
 
+    // 디바운스
+    useDebounce({
+        callback: () => handleChangeInput(inputTemp),
+        ms: 350,
+        args: [inputTemp]
+    });
+
+    const handleChangeTemp = (e) => {
+        setInputTemp(e.target.value);
+    }
     return (
     <InputWrap>
         <TextField 
@@ -48,8 +59,8 @@ export default function TextFieldTemplate(props) {
         variant="outlined"
         type={type === "password" ? "password" : "text"}
         fullWidth
-        value={inputValue}
-        onChange={handleChangeInput}
+        value={inputTemp}
+        onChange={handleChangeTemp}
         helperText={validation? "" : content.notification}
         FormHelperTextProps={{style: styles.helperText}}
         />

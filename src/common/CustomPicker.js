@@ -30,6 +30,7 @@ const styles = {
         color: "#ff0000"
     }
 };
+
 export default function CustomPicker(props) {
     const {type, pickerValue, validation, handleChangePicker} = props;
     const content = comboboxContent[type];

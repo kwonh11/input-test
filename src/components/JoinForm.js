@@ -184,17 +184,17 @@ export default function JoinForm(props) {
         setRadioValue(e.target.value);
         console.log(`radio : ${e.target.value}`);
     };
-    const handleChangeEmail = (e) => {
-        setEmailValue(e.target.value);
-        console.log(e.target.value);
+    const handleChangeEmail = (value) => {
+        setEmailValue(value);
+        console.log(value);
     }
-    const handleChangePassword = (e) => {
-        setPasswordValue(e.target.value);
-        console.log(e.target.value);
+    const handleChangePassword = (value) => {
+        setPasswordValue(value);
+        console.log(value);
     }
-    const handleChangeCompany = (e) => {
-        setCompanyValue(e.target.value);
-        console.log(e.target.value);
+    const handleChangeCompany = (value) => {
+        setCompanyValue(value);
+        console.log(value);
     }
     const handleChangeCurrency = (e) => {
         setCurrencyValue(e.target.value);
